@@ -36,7 +36,7 @@ function App() {
         const newNote = {
             body: "# Type your markdown note's title here",
             createdAt: Date.now(),
-            upadtedAt: Date.now()
+            updatedAt: Date.now()
         }
         const newNoteRef = await addDoc(notesCollection, newNote)
         setCurrentNoteId(newNoteRef.id)
@@ -46,7 +46,7 @@ function App() {
         const docRef = doc(database, "notes", currentNoteId)
         await setDoc(
             docRef,
-            { body: text, upadtedAt:Date.now() },
+            { body: text, updatedAt:Date.now() },
             {merge: true}
         )
     }
